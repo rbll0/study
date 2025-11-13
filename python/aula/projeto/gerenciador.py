@@ -36,7 +36,7 @@ def completar_tarefa(tarefas,indice):
 def remover_tarefa_completa(tarefas):
     print("\nRemovendo tarefas completas...")
     for tarefa in tarefas:
-        if tarefa["completa"] == True:
+        if tarefa["completa"]:
             tarefas.remove(tarefa)
             print(f'Tarefa "{tarefa["tarefa"]}" removida com sucesso!')
     return
