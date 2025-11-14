@@ -26,8 +26,18 @@ def editar_contatos(agenda,indice, nome, telefone, email):
 
         print(f"Contato {indice} atualizado com sucesso !!")
     else:
-        print("Índice invalido")    
+        print("Índice inválido")    
     return
+
+def favoritar_contato(agenda, indice):
+    indice_ajustado = int(indice) - 1
+    if(indice_ajustado >= 0 and indice_ajustado < len(agenda)):
+        agenda[indice_ajustado] ["favorito"] = True
+        print(f"Contato {indice} marcado como favorito !!")
+    else:
+        print("Índice inválido ")
+
+
 
 while True: 
     print("\nMenu da Agenda de Contatos")
@@ -56,6 +66,11 @@ while True:
         telefone = input("Digite o novo telefone: ")
         email = input("Digite o novo email: ")    
         editar_contatos(agenda,indice, nome, telefone, email)
+
+    if opcao == '4':
+        ver_contatos(agenda)    
+        indice = input("Digite o número do contato que deseja favoritar: ")
+        favoritar_contato(agenda, indice)
 
     elif opcao == '6':
         print("Saindo da agenda de contatos. Até mais!")
